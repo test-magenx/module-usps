@@ -634,9 +634,7 @@ class Carrier extends AbstractCarrierOnline implements \Magento\Shipping\Model\C
                             );
                         }
                     }
-                    uasort($priceArr, function ($previous, $next) {
-                        return ($previous <= $next) ? -1 : 1;
-                    });
+                    asort($priceArr);
                 } elseif (!$isUS && is_object($xml->Package->Service)) {
                     /*
                      * International Rates
@@ -656,9 +654,7 @@ class Carrier extends AbstractCarrierOnline implements \Magento\Shipping\Model\C
                             );
                         }
                     }
-                    uasort($priceArr, function ($previous, $next) {
-                        return ($previous <= $next) ? -1 : 1;
-                    });
+                    asort($priceArr);
                 }
             }
         }
